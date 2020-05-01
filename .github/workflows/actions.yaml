@@ -1,0 +1,14 @@
+name: "Tweeting a Sheila on 7's lyric"
+on:
+  schedule:
+    - cron: "0 * * * *"
+jobs:
+  tweet:
+    name: "Tweeting a lyric"
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-go@v2
+      with:
+        go-version: '^1.14.2'
+    - run: go run main.go
