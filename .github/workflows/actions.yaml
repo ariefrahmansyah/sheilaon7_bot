@@ -1,10 +1,10 @@
-name: "Tweeting a Sheila on 7's lyric"
+name: Tweeting Sheila on 7 lyric
 on:
   schedule:
-    - cron: "0 * * * *"
+    - cron: '*/5 * * * *'
 jobs:
   tweet:
-    name: "Tweeting a lyric"
+    name: Tweeting a lyric
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
