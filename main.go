@@ -61,6 +61,8 @@ func main() {
 		break
 	}
 
+	lyric += " #sheilaon7 #sheilagank"
+
 	_, _, err = twitterClient.Statuses.Update(lyric, nil)
 	panicOnError(err)
 }
