@@ -58,13 +58,23 @@ func main() {
 			}
 		}
 
+		lyric += "\n#sheilaon7 #sheilagank"
+
+		_, _, err = twitterClient.Statuses.Update(lyric, nil)
+		if err != nil {
+			if apiError, ok := err.(twitter.APIError); ok {
+				if len(apiError.Errors) > 0 && apiError.Errors[0].Code == 187 {
+					fmt.Println("New tweet shouldn't be same as previous tweet")
+					fmt.Println()
+					continue
+				}
+			} else {
+				panicOnError(err)
+			}
+		}
+
 		break
 	}
-
-	lyric += "\n#sheilaon7 #sheilagank"
-
-	_, _, err = twitterClient.Statuses.Update(lyric, nil)
-	panicOnError(err)
 }
 
 // NewTwitterClient returns a new TwitterClient.
