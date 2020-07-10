@@ -58,7 +58,7 @@ func main() {
 			}
 		}
 
-		lyric += "\n#sheilaon7 #sheilagank"
+		lyric += "\n@sheilaon7 #sheilagank"
 
 		_, _, err = twitterClient.Statuses.Update(lyric, nil)
 		if err != nil {
